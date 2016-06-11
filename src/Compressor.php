@@ -95,8 +95,7 @@ class Compressor
     }
 
     /**
-     * Render tags pointing to compressed CSS and/or JS
-     * @return [type] [description]
+     * Render tags pointing to compressed CSS and/or JS files
      */
     private function renderCompressed()
     {
@@ -222,39 +221,4 @@ class Compressor
             unlink($file);
         }
     }
-}
-
-function __compress($html, $regex, $type)
-{
-    $path = constant("COMPRESSOR_{$type}_PATH");
-    $url = constant("COMPRESSOR_{$type}_URL");
-
-    preg_match_all($regex, $html, $matches, PREG_PATTERN_ORDER);
-
-    $files = $matches[2];
-    $src = '';
-    $filename_hash = '';
-
-    foreach($files as $file) {
-        $src .= file_get_contents($file) . "\n";
-        $filename_hash .= $file;
-    }
-
-    $filename_hash = md5($filename_hash);
-
-    if (!is_dir($path)) {
-        mkdir($path, 0744, true);
-    }
-
-    $filename = $filename_hash . '_' . md5($src) . '.' . strtolower($type);
-
-    if (!file_exists($path . $filename)) {
-        $f = fopen($path . $filename, 'w');
-        fwrite($f, $src);
-        fclose($f);
-
-        delete_files($path . $filename_hash . '_*.' . $type);
-    }
-
-    return $url . $filename;
 }
