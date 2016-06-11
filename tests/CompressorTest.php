@@ -3,7 +3,7 @@ use RelishMedia\Compressor;
 
 define('COMPRESSOR_ROOT', './examples/');
 
-class CompressorTest extends PHPUnit_Framework_TestCase
+class CompressorTest extends PHPUnit\Framework\TestCase
 {
     public function validHtmlProvider()
     {
@@ -65,7 +65,7 @@ class CompressorTest extends PHPUnit_Framework_TestCase
      * Tests the compressor can output compressed HTML
      *
      * @param  string $html The HTML string to test
-     * 
+     *
      * @dataProvider validHtmlProvider
      */
     public function testCompressorCanRenderCompressedHtml($html)
