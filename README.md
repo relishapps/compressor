@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/relishmedia/compressor.svg?branch=master)](https://travis-ci.org/relishmedia/compressor)
+
 # JS and CSS Compressor for PHP
 
 ```php
