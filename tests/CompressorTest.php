@@ -3,7 +3,7 @@ use RelishMedia\Compressor;
 
 define('COMPRESSOR_ROOT', './examples/');
 
-class CompressorTest extends PHPUnit\Framework\TestCase
+class CompressorTest extends PHPUnit_Framework_TestCase
 {
     public function tearDown()
     {
