@@ -5,6 +5,19 @@ define('COMPRESSOR_ROOT', './examples/');
 
 class CompressorTest extends PHPUnit\Framework\TestCase
 {
+    public function tearDown()
+    {
+        array_map('unlink', glob('examples/js/compressor/*'));
+        if (is_dir('examples/js/compressor')) {
+            rmdir('examples/js/compressor');
+        }
+
+        array_map('unlink', glob('examples/css/compressor/*'));
+        if (is_dir('examples/css/compressor')) {
+            rmdir('examples/css/compressor');
+        }
+    }
+
     public function validHtmlProvider()
     {
         return [
