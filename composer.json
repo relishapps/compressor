@@ -1,5 +1,6 @@
 {
     "name": "relishmedia/compressor",
+    "version": "1.0",
     "description": "CSS and JS compressor for PHP",
     "license": "MIT",
     "keywords": ["php","css","js","compressor"],
