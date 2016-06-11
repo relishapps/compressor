@@ -149,7 +149,9 @@ class Compressor
 
         file_put_contents($path, $this->concatFiles($this->js_files));
 
-        exec("uglifyjs $path -mco $path");
+        if (`which uglifyjs`) {
+            exec("uglifyjs $path -mco $path");
+        }
 
         return $filename;
     }
@@ -171,7 +173,9 @@ class Compressor
 
         file_put_contents($path, $this->concatFiles($this->css_files));
 
-        exec("csso $path $path");
+        if (`which csso`) {
+            exec("csso $path $path");
+        }
 
         return $filename;
     }
